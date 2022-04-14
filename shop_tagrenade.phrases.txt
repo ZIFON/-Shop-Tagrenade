@@ -1,0 +1,33 @@
+"Phrases"
+{
+	"Prefix"
+	{
+		"en"        " \x04[\x05Shop\x04] \x02"
+		"ru"        " \x04[\x05Shop\x04] \x02"
+	}
+
+	"OnlyAlive"
+	{
+		"en"        "\x02You should be alive."
+		"ru"        "\x02Вы должны быть живы."
+	}
+
+	"LimitOnRound"
+	{
+		"#format"	"{1:i},{2:i}"
+		"en"        "\x02You have exceeded the grenade purchase limit for a round ({1}/{2})."
+		"ru"        "\x02Вы превысили лимит покупок гранаты на раунд ({1}/{2})."
+	}
+
+	"Unused"
+	{
+		"en"        "\x02You haven't used the previous grenade yet."
+		"ru"        "\x02Вы еще не использовали предыдущую гранату."
+	}
+
+	"SuccessfulPay"
+	{
+		"en"        "\x02You have successfully purchased a wallhack grenade."
+		"ru"        "\x06Вы успешно приобрели вх-гранату."
+	}
+}
