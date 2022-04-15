@@ -2,6 +2,7 @@
 #include <shop>
 #include <sdktools>
 #include <sdktools_hooks>
+#include <csgo_colors>
 
 #define CATEGORY "granades"
 
@@ -23,6 +24,8 @@ ConVar CVARB, CVARS, CVARL;
 
 public void OnPluginStart()
 {
+	LoadTranslations("shop_tagrenade.phrases");
+
 	HookEvent("tagrenade_detonate",tagrenade);
 	HookEvent("player_death", Event_OnPlayerDeath, EventHookMode_PostNoCopy);
 	HookEvent("round_start", Event_OnRoundStart, EventHookMode_PostNoCopy);
@@ -93,22 +96,24 @@ public Action tagrenade(Event event, const char[] name, bool dontBroadcast)
 
 public bool ItemBuyCallback(int client, CategoryId category_id, const char[] category, ItemId item_id, const char[] item, ItemType type, int price, int sell_price, int value, int gold_price, int gold_sell_price)
 {
+	SetGlobalTransTarget(client);
+	
 	if (!IsPlayerAlive(client))
 	{
-		PrintToChat(client, " \x04[\x05Shop\x04] \x02Вы должны быть живы.");
+		CGOPrintToChat(client, "%t%t", "Prefix", "OnlyAlive");
 	}
 	else if (CVARL.IntValue && g_iRoundUsed[client] >= CVARL.IntValue)
 	{
-		PrintToChat(client, " \x04[\x05Shop\x04] \x02Вы превысили лимит покупок гранаты на раунд (%d/%d).", g_iRoundUsed[client], CVARL.IntValue);
+		CGOPrintToChat(client, "%t%t", "Prefix", "LimitOnRound", g_iRoundUsed[client], CVARL.IntValue);
 	}
 	else if (g_bSpecialGrenade[client])
 	{
-		PrintToChat(client, " \x04[\x05Shop\x04] \x02Вы еще не использовали предыдущую гранату.");
+		CGOPrintToChat(client, "%t%t", "Prefix", "Unused");
 	}
 
 	else
 	{
-		PrintToChat(client, " \x04[\x05Shop\x04] \x06Вы успешно приобрели вх-гранату.");
+		CGOPrintToChat(client, "%t%t", "Prefix", "SuccessfulPay");
 		g_bSpecialGrenade[client] = true;
 		GivePlayerItem(client, "weapon_tagrenade");
 		g_iRoundUsed[client]++;

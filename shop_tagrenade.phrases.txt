@@ -1,0 +1,33 @@
+"Phrases"
+{
+	"Prefix"
+	{
+		"en"        " {GREEN}[{LIME}Shop{GREEN}] {RED}"
+		"ru"        " {GREEN}[{LIME}Shop{GREEN}] {RED}"
+	}
+
+	"OnlyAlive"
+	{
+		"en"        "{RED}You should be alive."
+		"ru"        "{RED}Вы должны быть живы."
+	}
+
+	"LimitOnRound"
+	{
+		"#format"	"{1:i},{2:i}"
+		"en"        "{RED}You have exceeded the grenade purchase limit for a round ({1}/{2})."
+		"ru"        "{RED}Вы превысили лимит покупок гранаты на раунд ({1}/{2})."
+	}
+
+	"Unused"
+	{
+		"en"        "{RED}You haven't used the previous grenade yet."
+		"ru"        "{RED}Вы еще не использовали предыдущую гранату."
+	}
+
+	"SuccessfulPay"
+	{
+		"en"        "{LIGHTGREEN}You have successfully purchased a wallhack grenade."
+		"ru"        "{LIGHTGREEN}Вы успешно приобрели вх-гранату."
+	}
+}
