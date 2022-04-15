@@ -53,7 +53,7 @@ public void Shop_Started()
 
 public void ChangeCvar_Buy(ConVar convar, const char[] oldValue, const char[] newValue)
 {
-	Shop_SetItemPrice(g_iID, convar.IntValue);
+	if (g_iID != INVALID_ITEM) Shop_SetItemPrice(g_iID, convar.IntValue);
 }
 
 public void Event_OnRoundStart(Event event, const char[] name, bool dontBroadcast)
