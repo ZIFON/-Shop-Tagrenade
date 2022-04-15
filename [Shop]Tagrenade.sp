@@ -53,7 +53,7 @@ public void Shop_Started()
 
 public void ChangeCvar_Buy(ConVar convar, const char[] oldValue, const char[] newValue)
 {
-	Shop_SetItemPrice(g_iID, convar.IntValue);
+	if (g_iID != INVALID_ITEM) Shop_SetItemPrice(g_iID, convar.IntValue);
 }
 
 public void Event_OnRoundStart(Event event, const char[] name, bool dontBroadcast)
@@ -71,7 +71,7 @@ public void ChangeCvar_Limit(ConVar convar, const char[] oldValue, const char[] 
 
 public void ChangeCvar_Sell(ConVar convar, const char[] oldValue, const char[] newValue)
 {
-	Shop_SetItemSellPrice(g_iID, convar.IntValue);
+	if (g_iID != INVALID_ITEM) Shop_SetItemSellPrice(g_iID, convar.IntValue);
 }
 public void OnItemRegistered(CategoryId category_id, const char[] sCategory, const char[] sItem, ItemId item_id)
 {
