@@ -2,6 +2,7 @@
 #include <shop>
 #include <sdktools>
 #include <sdktools_hooks>
+#include <csgo_colors>
 
 #define CATEGORY "granades"
 
@@ -99,20 +100,20 @@ public bool ItemBuyCallback(int client, CategoryId category_id, const char[] cat
 	
 	if (!IsPlayerAlive(client))
 	{
-		PrintToChat(client, "%t%t", "Prefix", "OnlyAlive");
+		CGOPrintToChat(client, "%t%t", "Prefix", "OnlyAlive");
 	}
 	else if (CVARL.IntValue && g_iRoundUsed[client] >= CVARL.IntValue)
 	{
-		PrintToChat(client, "%t%t", "Prefix", "LimitOnRound", g_iRoundUsed[client], CVARL.IntValue);
+		CGOPrintToChat(client, "%t%t", "Prefix", "LimitOnRound", g_iRoundUsed[client], CVARL.IntValue);
 	}
 	else if (g_bSpecialGrenade[client])
 	{
-		PrintToChat(client, "%t%t", "Prefix", "Unused");
+		CGOPrintToChat(client, "%t%t", "Prefix", "Unused");
 	}
 
 	else
 	{
-		PrintToChat(client, "%t%t", "Prefix", "SuccessfulPay");
+		CGOPrintToChat(client, "%t%t", "Prefix", "SuccessfulPay");
 		g_bSpecialGrenade[client] = true;
 		GivePlayerItem(client, "weapon_tagrenade");
 		g_iRoundUsed[client]++;
