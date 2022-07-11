@@ -9,7 +9,7 @@
 public Plugin myinfo =
 {
 	name =  "[Shop]Tagrenade" ,
-	author =  "ZIFON & FIVE & Domikuss" ,
+	author =  "ZIFON & FIVE" ,
 	description =  "https://github.com/ZIFON" ,
 	version =  "3.0" ,
 	url =  "https://github.com/ZIFON"
